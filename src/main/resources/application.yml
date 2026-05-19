@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: kafka-audit-service
+
+kafka:
+  bootstrap-servers: localhost:9092
+  consumer:
+    group-id: audit-consumer-group
+  topics:
+    audit-events: audit-events
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    root: INFO
+    com.samarasimha.kafkaaudit: DEBUG
+    org.apache.kafka: WARN
