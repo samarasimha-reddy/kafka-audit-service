@@ -1,0 +1,14 @@
+# Prometheus scrape config for the Kafka Audit Service
+global:
+  scrape_interval: 5s
+  evaluation_interval: 5s
+
+scrape_configs:
+  - job_name: 'kafka-audit-service'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      # host.docker.internal points the container at the Mac host,
+      # where the Spring Boot app runs on port 8080
+      - targets: ['host.docker.internal:8080']
+        labels:
+          application: 'kafka-audit-service'
