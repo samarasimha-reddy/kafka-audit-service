@@ -60,6 +60,7 @@ public class SequenceGapDetector {
         return gap[0];
     }
 
+
     public long getTotalMissing() {
         return totalMissing.get();
     }
